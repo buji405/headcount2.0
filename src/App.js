@@ -11,7 +11,7 @@ class App extends Component {
     this.helper = new DistrictRepository(kinderData)
     this.state = {
       selectedCards: [],
-      filteredCards: []
+      filteredCards: Object.keys(this.helper.data)
     };
   };
 
@@ -21,16 +21,24 @@ class App extends Component {
   };
 
   selectCard(id) {
-    // console.log(id)
     const newArray = this.state.selectedCards
     newArray.push(this.helper.findByName(id))
-    // const newArray = this.helper.findAllMatches().map(obj => {
-    //   obj.location = obj.location.toLowerCase()
-    //   return obj
-    // }).filter(obj => obj.location.includes(id.toLowerCase()) )
-    // console.log(newArray)
+
+    if (newArray.length < 3) {
+      this.setState({
+        selectedCards: newArray
+      })
+      event.target.classList.toggle('selected');
+    }
+  }
+
+  compareCards(obj1, obj2) {
+    return this.helper.compareDistrictAverages(obj1, obj2)
+  }
+
+  resetState() {
     this.setState({
-      selectedCards: newArray
+      selectedCards: []
     })
   }
 
@@ -45,14 +53,13 @@ class App extends Component {
           </div>
           <div className="input-container">
             <Input helper={this.helper}
-                   submitSearch={this.submitSearch}/>
+                   submitSearch={this.submitSearch.bind(this)}/>
           </div>
         </div>
         <CardList selectedCards={this.selectCard.bind(this)}
                   submitSearch={this.submitSearch.bind(this)}
                   filteredCards={this.state.filteredCards}
-                  helper={this.helper}
-                  id={Date.now()}/>
+                  helper={this.helper}/>
       </div>
     );
   }

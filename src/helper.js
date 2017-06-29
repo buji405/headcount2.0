@@ -38,14 +38,10 @@ export default class DistrictRepository {
 
   findAllMatches(input = '') {
     const schoolKeys = Object.keys(this.data);
-    console.log(schoolKeys);
-    const newArray = schoolKeys.map(school => {
-      return this.data[school];
-    })
-    return newArray
     return schoolKeys.filter(location => {
       let searchInput = input.toUpperCase();
-      return location.toUpperCase().indexOf(searchInput) >= 0;
+      let matches = location.toUpperCase().indexOf(searchInput) >= 0;
+      return matches
     })
   }
 
