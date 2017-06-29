@@ -1,1 +1,66 @@
 /*APP COMPONENT RELATED CSS GOES HERE*/
+.header {
+  font-family: 'Just Me Again Down Here', cursive;  color: white;
+  font-size: 120px;
+  text-align: center;
+  margin: 0 20px;
+}
+
+.image-container {
+  display: flex;
+}
+
+.apple {
+  /*background-image: url(https://www.clipartsgram.com/image/696298155-school-bus-side.png);*/
+  background-image: url(http://www.misskatecuttables.com/uploads/shopping_cart/8039/large_worm-in-apple.png);
+  height: 120px;
+  width: 120px;
+  margin-bottom: 10px;
+  margin-top: 25px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.bus {
+  background-image: url(https://www.clipartsgram.com/image/696298155-school-bus-side.png);
+  height: 190px;
+  width: 120px;
+  padding-left: 10px;
+  margin-left: 10px;
+  margin-bottom: -10px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-container {
+  margin-bottom: 20px;
+}
+
+.input-field {
+  box-sizing: border-box;
+  margin-right: 5px;
+  font-size: 16px;
+  padding-left: 5px;
+}
+
+.submit {
+  font-size: 16px;
+  border-radius: 2px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.submit,
+.input-field {
+  height: 30px;
+  border: none;
+}

@@ -1,13 +1,18 @@
 
 .card {
-  width: 150px;
+  width: 160px;
+  height: 475px;
   text-align: center;
-  margin: 2%;
+  margin: 25px;
   background: white;
   opacity: .86;
   border-radius: 5px;
   padding: 10px;
   box-shadow: 3px 3px 3px #7c7c7c;
+}
+
+.card:hover {
+  cursor: pointer;
 }
 
 h1 {

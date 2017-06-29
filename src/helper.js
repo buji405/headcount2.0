@@ -38,6 +38,7 @@ export default class DistrictRepository {
 
   findAllMatches(input = '') {
     const schoolKeys = Object.keys(this.data);
+    console.log(schoolKeys);
     const newArray = schoolKeys.map(school => {
       return this.data[school];
     })
