@@ -7,7 +7,7 @@ const Card = ({schoolNames, selectedCards, helper, id}) => {
   return (
     <div className="card" onClick={() => selectedCards(schoolNames)}>
       <h1>{schoolName.toUpperCase()}</h1>
-      {Object.keys(annualData).map((year, index) => {
+      {Object.keys(annualData).map(year => {
         if (annualData[year] <= 0.5) {
           return (
             <ul key={Math.round(Date.now() * Math.random())}>

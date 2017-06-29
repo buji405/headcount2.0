@@ -5,10 +5,10 @@ import './CardList.css'
 const CardList = ({selectedCards, filteredCards, helper}) => {
   let cardsToRender = filteredCards
   if (cardsToRender.length === 0) cardsToRender = helper.data
-
-  const renderVal = Object.keys(cardsToRender).map((school, index) => {
+  const renderVal = cardsToRender.map((school, index) => {
     return(
-      <Card schoolNames={school}
+      <Card className='selected'
+            schoolNames={school}
             helper={helper}
             id={index}
             key={Math.round(Date.now() * Math.random())}
@@ -28,25 +28,6 @@ const CardList = ({selectedCards, filteredCards, helper}) => {
       </div>
     </section>
   )
-  // if (!filteredCards.length) {
-  //   return(
-  //   )
-  // } else {
-  //   return(
-  //     <div className="card-list">
-  //       {filteredCards.map((school, index) => {
-  //
-  //         return(
-  //           <Card schoolNames={school}
-  //                 helper={helper}
-  //                 id={index}
-  //                 key={index}
-  //                 selectedCards={selectedCards}/>
-  //         )
-  //       })}
-  //     </div>
-  //   )
-  // }
 }
 
 export default CardList;

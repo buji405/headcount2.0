@@ -3,7 +3,6 @@ import './App.css';
 import DistrictRepository from './helper';
 import CardList from './CardList';
 import Input from './Input';
-// import ComparisonCard from './ComparisonCard';
 import kinderData from '../data/kindergartners_in_full_day_program';
 
 
@@ -14,7 +13,7 @@ class App extends Component {
     this.helper = new DistrictRepository(kinderData)
     this.state = {
       selectedCards: [],
-      filteredCards: []
+      filteredCards: Object.keys(this.helper.data)
     };
   };
 
@@ -24,16 +23,24 @@ class App extends Component {
   };
 
   selectCard(id) {
-    console.log(id)
     const newArray = this.state.selectedCards
     newArray.push(this.helper.findByName(id))
-    // const newArray = this.helper.findAllMatches().map(obj => {
-    //   obj.location = obj.location.toLowerCase()
-    //   return obj
-    // }).filter(obj => obj.location.includes(id.toLowerCase()) )
-    console.log(newArray)
+
+    if (newArray.length < 3) {
+      this.setState({
+        selectedCards: newArray
+      })
+      event.target.classList.toggle('selected');
+    }
+  }
+
+  compareCards(obj1, obj2) {
+    return this.helper.compareDistrictAverages(obj1, obj2)
+  }
+
+  resetState() {
     this.setState({
-      selectedCards: newArray
+      selectedCards: []
     })
   }
 
@@ -44,8 +51,7 @@ class App extends Component {
                submitSearch={this.submitSearch.bind(this)}/>
         <CardList selectedCards={this.selectCard.bind(this)}
                   filteredCards={this.state.filteredCards}
-                  helper={this.helper}
-                  id={Date.now()}/>
+                  helper={this.helper}/>
       </div>
     );
   }
