@@ -1,9 +1,12 @@
 import React from 'react';
 import './Card.css';
 
+
 const Card = ({schoolNames, selectedCards, helper, id}) => {
+  console.log(schoolNames);
   const schoolName = helper.data[schoolNames].location;
   const annualData = helper.data[schoolNames].annualData;
+  console.log(annualData);
   return (
     <div className="card" onClick={() => selectedCards(schoolNames)}>
       <h1>{schoolName.toUpperCase()}</h1>

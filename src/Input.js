@@ -19,11 +19,12 @@ class Input extends Component {
   render() {
     return(
       <div>
-        <input value={this.state.searchInput}
+        <input className="input-field" value={this.state.searchInput}
                onChange={(e) => this.setState({searchInput: e.target.value})}/>
-             <button onClick={() => {this.handleSubmit(this.state.searchInput)}}>Submit</button>
+             <button className="submit" onClick={() => {this.handleSubmit(this.state.searchInput)}}>Search</button>
       </div>
     )
   }
 }
+
 export default Input;

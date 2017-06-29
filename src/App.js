@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import DistrictRepository from './helper';
 import CardList from './CardList';
-import Input from './Input';
 import kinderData from '../data/kindergartners_in_full_day_program';
-
-
+import Input from './Input';
 
 class App extends Component {
   constructor () {
@@ -47,9 +45,19 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Input helper={this.helper}
-               submitSearch={this.submitSearch.bind(this)}/>
+        <div className="header-container">
+          <div className="image-container">
+            <div className="apple"></div>
+            <div className="header">Headcount 2.0</div>
+            <div className="bus"></div>
+          </div>
+          <div className="input-container">
+            <Input helper={this.helper}
+                   submitSearch={this.submitSearch.bind(this)}/>
+          </div>
+        </div>
         <CardList selectedCards={this.selectCard.bind(this)}
+                  submitSearch={this.submitSearch.bind(this)}
                   filteredCards={this.state.filteredCards}
                   helper={this.helper}/>
       </div>
