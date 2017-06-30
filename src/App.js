@@ -23,6 +23,7 @@ class App extends Component {
 
   selectCard(id) {
     const newArray = this.state.selectedCards
+    console.log(newArray);
     const index = newArray.map(e => e.location)
                           .indexOf(id)
     if (index !== -1) {
@@ -36,17 +37,16 @@ class App extends Component {
 
     this.setState({
       selectedCards: newArray
-
     })
   }
 
   compareCards(obj1, obj2) {
-     this.helper.compareDistrictAverages(obj1, obj2)
+    return this.helper.compareDistrictAverages(obj1, obj2)
   }
 
   render() {
     return (
-      <div>
+      <div className='app'>
         <div className="header-container">
           <div className="image-container">
             <div className="apple"></div>

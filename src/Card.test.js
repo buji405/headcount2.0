@@ -17,21 +17,22 @@ describe('card', () => {
           )
     expect(wrapper.find('.card').exists()).toBe(true);
   })
+
   it('if clicked, card should fire the selectedCards func and add class of cardSelected', () => {
     const mockedFn = jest.fn()
-    const cardClass = 'card'
-    const wrapper = mount(
-      <Card chosenCards={[]}
-            schoolNames={''}
-            data={helper.data[school].annualData}
-            selectedCards={mockedFn} />
-          )
+    const wrapper = mount(<Card chosenCards={[]}
+                                schoolNames={''}
+                                data={helper.data[school].annualData}
+                                selectedCards={mockedFn} />)
 
     const card = wrapper.find('.card')
+
     card.simulate('click')
 
     expect(mockedFn).toHaveBeenCalledTimes(1);
     expect(wrapper.find('.cardSelected').length).toEqual(1)
+
+    console.log(wrapper.debug());
   })
 
 })
