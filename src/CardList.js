@@ -7,7 +7,8 @@ const CardList = ({chosenCards, selectedCards, filteredCards, data, submitSearch
   if (cardsToRender.length === 0) cardsToRender = data
   const renderVal = cardsToRender.map((school, index) => {
     return(
-      <Card schoolNames={school}
+      <Card className="card"
+            schoolNames={school}
             data={data[school].annualData}
             id={index}
             chosenCards={chosenCards}

@@ -4,6 +4,7 @@ import DistrictRepository from './helper';
 import CardList from './CardList';
 import kinderData from '../data/kindergartners_in_full_day_program';
 import Input from './Input';
+// import ComparisonCard from './ComparisonCard';
 
 class App extends Component {
   constructor () {
@@ -24,7 +25,6 @@ class App extends Component {
     const newArray = this.state.selectedCards
     const index = newArray.map(e => e.location)
                           .indexOf(id)
-    console.log(id)
     if (index !== -1) {
       newArray.splice(index, 1)
     } else {
@@ -33,23 +33,15 @@ class App extends Component {
       }
       newArray.push(this.helper.findByName(id))
     }
+
     this.setState({
       selectedCards: newArray
+
     })
-  }
-
-  componentDidMount() {
-
   }
 
   compareCards(obj1, obj2) {
-    return this.helper.compareDistrictAverages(obj1, obj2)
-  }
-
-  resetState() {
-    this.setState({
-      selectedCards: []
-    })
+     this.helper.compareDistrictAverages(obj1, obj2)
   }
 
   render() {
@@ -66,6 +58,7 @@ class App extends Component {
                    submitSearch={this.submitSearch.bind(this)}/>
           </div>
         </div>
+
         <CardList selectedCards={this.selectCard.bind(this)}
                   chosenCards={this.state.selectedCards}
                   submitSearch={this.submitSearch.bind(this)}
