@@ -4,6 +4,7 @@ import DistrictRepository from './helper';
 import CardList from './CardList';
 import kinderData from '../data/kindergartners_in_full_day_program';
 import Input from './Input';
+// import ComparisonCard from './ComparisonCard';
 
 class App extends Component {
   constructor () {
@@ -33,6 +34,7 @@ class App extends Component {
       }
       newArray.push(this.helper.findByName(id))
     }
+
     this.setState({
       selectedCards: newArray
     })
@@ -56,6 +58,7 @@ class App extends Component {
                    submitSearch={this.submitSearch.bind(this)}/>
           </div>
         </div>
+
         <CardList selectedCards={this.selectCard.bind(this)}
                   chosenCards={this.state.selectedCards}
                   submitSearch={this.submitSearch.bind(this)}
