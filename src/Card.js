@@ -2,29 +2,23 @@ import React from 'react';
 import './Card.css';
 
 
-const Card = ({schoolNames, selectedCards, helper, id}) => {
-  console.log(schoolNames);
-  const schoolName = helper.data[schoolNames].location;
-  const annualData = helper.data[schoolNames].annualData;
-  console.log(annualData);
+const Card = ({chosenCards, schoolNames, selectedCards, data, id}) => {
+  let cardClass = 'card'
+  const cardData = Object.keys(data).map(year => {
+    let listClass = data[year] <= 0.5 ? 'less-than data' : "greater-than data"
+    return (
+        <li key={Math.round(Date.now() * Math.random())}><p className={listClass}>{year}: {data[year]}</p></li>
+      )
+  })
+if (chosenCards.map(e => e.location).indexOf(schoolNames) !== -1) {
+  cardClass = 'cardSelected'
+}
   return (
-    <div className="card" onClick={() => selectedCards(schoolNames)}>
-      <h1>{schoolName.toUpperCase()}</h1>
-      {Object.keys(annualData).map(year => {
-        if (annualData[year] <= 0.5) {
-          return (
-            <ul key={Math.round(Date.now() * Math.random())}>
-              <li><p className="less-than data">{year}: {annualData[year]}</p></li>
-            </ul>
-          )
-        } else {
-          return (
-            <ul key={Math.round(Date.now() * Math.random())}>
-              <li><p className="greater-than data">{year}: {annualData[year]}</p></li>
-            </ul>
-          )
-        }
-      })}
+    <div className={cardClass} onClick={() => selectedCards(schoolNames)}>
+      <h1>{schoolNames.toUpperCase()}</h1>
+      <ul>
+        {cardData}
+      </ul>
     </div>
   )
 }

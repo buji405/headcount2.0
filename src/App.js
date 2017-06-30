@@ -22,14 +22,24 @@ class App extends Component {
 
   selectCard(id) {
     const newArray = this.state.selectedCards
-    newArray.push(this.helper.findByName(id))
-
-    if (newArray.length < 3) {
-      this.setState({
-        selectedCards: newArray
-      })
-      event.target.classList.toggle('selected');
+    const index = newArray.map(e => e.location)
+                          .indexOf(id)
+    console.log(id)
+    if (index !== -1) {
+      newArray.splice(index, 1)
+    } else {
+      if (newArray.length === 2) {
+        newArray.shift()
+      }
+      newArray.push(this.helper.findByName(id))
     }
+    this.setState({
+      selectedCards: newArray
+    })
+  }
+
+  componentDidMount() {
+
   }
 
   compareCards(obj1, obj2) {
@@ -57,9 +67,10 @@ class App extends Component {
           </div>
         </div>
         <CardList selectedCards={this.selectCard.bind(this)}
+                  chosenCards={this.state.selectedCards}
                   submitSearch={this.submitSearch.bind(this)}
                   filteredCards={this.state.filteredCards}
-                  helper={this.helper}/>
+                  data={this.helper.data}/>
       </div>
     );
   }
