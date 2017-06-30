@@ -11,6 +11,19 @@
   box-shadow: 3px 3px 3px #7c7c7c;
 }
 
+.cardSelected {
+  width: 160px;
+  height: 475px;
+  text-align: center;
+  margin: 25px;
+  background: white;
+  opacity: .86;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 3px 3px 3px #7c7c7c;
+  border: 1px solid red
+}
+
 .card:hover {
   cursor: pointer;
 }

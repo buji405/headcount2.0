@@ -2,15 +2,15 @@ import React from 'react'
 import Card from './Card'
 import './CardList.css'
 
-const CardList = ({selectedCards, filteredCards, helper, submitSearch}) => {
+const CardList = ({chosenCards, selectedCards, filteredCards, data, submitSearch}) => {
   let cardsToRender = filteredCards
-  if (cardsToRender.length === 0) cardsToRender = helper.data
+  if (cardsToRender.length === 0) cardsToRender = data
   const renderVal = cardsToRender.map((school, index) => {
     return(
-      <Card className='selected'
-            schoolNames={school}
-            helper={helper}
+      <Card schoolNames={school}
+            data={data[school].annualData}
             id={index}
+            chosenCards={chosenCards}
             key={Math.round(Date.now() * Math.random())}
             selectedCards={selectedCards}/>
     )
