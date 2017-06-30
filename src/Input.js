@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types';
 
 class Input extends Component {
   constructor() {
@@ -25,6 +26,11 @@ class Input extends Component {
       </div>
     )
   }
+}
+
+Input.propTypes = {
+  helper: PropTypes.object,
+  submitSearch: PropTypes.func
 }
 
 export default Input;

@@ -1,5 +1,6 @@
 import React from 'react'
 import Card from './Card'
+import PropTypes from 'prop-types';
 import './CardList.css'
 
 const CardList = ({chosenCards, selectedCards, filteredCards, data, submitSearch}) => {
@@ -21,6 +22,14 @@ const CardList = ({chosenCards, selectedCards, filteredCards, data, submitSearch
       {renderVal}
     </div>
   )
+}
+
+CardList.propTypes = {
+  chosenCards: PropTypes.array,
+  selectedCards: PropTypes.func,
+  filteredCards: PropTypes.array,
+  data: PropTypes.object,
+  submitSearch: PropTypes.func
 }
 
 export default CardList;
