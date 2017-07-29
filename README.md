@@ -1,10 +1,10 @@
 # HeadCount - A Turing Mod 3 FEE Project
 
-Synopsis
+### Synopsis
 
 This project contains data visualization for kindergartners enrollment data across Colorado school districts, as well as functionality to compare two selected districts.
 
-Set Up
+### Set Up
 
 Clone the repo
 
@@ -12,13 +12,13 @@ Run npm install from the root directory
 
 Run npm start and visit localhost:3000 in your browser
 
-Test Driven Development
+### Test Driven Development
 
 HeadCount uses Jest with Enzyme for testing
 
 Run with npm test
 
-Project Goals per assignment
+### Project Goals per assignment
 
 Separate application logic into small, testable functions.
 Create modular, reusable React components.
